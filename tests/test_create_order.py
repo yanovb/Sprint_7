@@ -1,3 +1,4 @@
+import allure
 import pytest
 from URLs import URLs
 from data import make_order_data
@@ -5,6 +6,10 @@ from http_request import HTTPRequests
 
 
 class TestCreateOrder:
+    @allure.title('Проверка успешного создания заказа')
+    @allure.description(
+        'Проверка, что при создании успешного заказа возвращается статус 201 и тело ответа содержит track'
+    )
     @pytest.mark.parametrize(
         'colors',
         [
